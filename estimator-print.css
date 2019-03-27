@@ -1,99 +1,349 @@
 @media print {
-	header {
-		text-align: left;
-		margin: 0 auto;
-		margin-top: .5in;
-		display: block;
-		width: 75%;
+	
+	html {
+		font-size: 0.75em;
+		line-height: 1.5;
+		font-weight: 400;
+		font-family: 'IBM Plex Mono', helvetica, arial, sans-serif;
+		color: #223E99;
+		font-variant-numeric: slashed-zero;
 	}
-	header h1 {
-		font-size: 1.25em;
-		line-height: .75em;
-		font-weight: bold;
-		margin: 0;
-		padding: 4px 8px;
-	}
-	header p {
-		font-size: .85em;
-		line-height: .85em;
-		font-weight: normal;
-		margin: 0;
-		color: #ddd;
-		padding: 2px 8px;
-	}
-	.estimator {
-		margin: .5in;
-		margin-top: .25in;
-		width: 85%;
-		display: block;
-	}
+
 	* {
-		font-family: Helvetica;
-		font-size: 11px !important;
-		line-height: 14px;
-		color: #333;
+		color: #223E99 !important;
 	}
-	#estimator-table, .estimator-footer {
-		width: 85%;
-		margin: 0 auto;
+	
+	body {
+		margin: 0;
 	}
-	#estimator-table thead {
-		margin-bottom: 25px;
+	
+	/* ------------------------------------------------------------
+		Estimate Form Table
+	------------------------------------------------------------ */
+	
+	.estimator {
+		width: 100%;
+		max-width: 50em;
+		margin: 2em auto;
 	}
-	#estimator-table thead td .currency {
-		margin-right: -2px;
+	.bounce {
+		animation-name: bounce;
+		animation-timing-function: ease;
 	}
-	#estimator-table thead .rate {
-		text-align: right !important;
-		font-weight: bold;
+	@keyframes bounce {
+		0%   { transform: translateY(0); }
+		50%  { transform: translateY(-3px); }
+		100% { transform: translateY(0); }
 	}
-	#estimator-table thead .project-title {
-		text-align: left !important;
+	.print-me {
+		position: fixed;
+		top: 30px;
+		width: 50em;
+		margin-left: 65px;
+		//text-align: center;
+		animation: bounce 2s ease-in-out;
+		animation-iteration-count: infinite;
 	}
-	#estimator-table th {
+	a#form_link {
+		font-size: .5em;
+		color: #fff;
+		padding: .5em 1em;
+		display: inline-block;
+		background-color: #223E99;
+		text-decoration: none;
+		text-transform: uppercase;
+		border-radius: 500px;
 		text-align: center;
-		padding: 7px 5px;
+	}
+	a#form_link .emoji {
+	}
+	
+	a#form_link:hover {
+		//transform: rotate(-4deg);
+		//transition: all .25s ease-in-out;
+		background: transparent;
+		color: #223E99;
+	}
+	
+	.estimator table {
+		width: 100%;
+	}
+	.estimator .col-heads {
+		height: 50px;
+		vertical-align: bottom;
+	}
+	.estimator thead th {
+		font-size: .6875em;
+		text-align: center;
+		color: #223E99;
+		text-transform: uppercase;
+	}
+	.estimator thead th.project-title,
+	.estimator thead th.rate {
+		padding-left: 1em;
+		text-align: left;
+	}
+	.estimator thead .col-heads th {
+		padding-top: .75em;
+	}
+	.estimator thead td {
+		border-bottom: 1px solid #eee;
+		padding: .5em;
+	}
+	.estimator thead td.project-title {
+		vertical-align: top;
+	}
+	.estimator thead td .title {
+		padding-right: .75em;
+	}
+	.estimator thead #title_field,
+	.estimator thead #default_rate_field {
+		margin-right: .75em;
+	}
+	.estimator thead td .currency {
+	
+	}
+	.estimator thead td .default_rate {
+		padding-right: .75em;
+	}
+	.estimator thead td.rate:hover {
+		background-color: #FFEFC8;
+	}
+	.estimator thead td a {
+		font-size: .45em;
+		font-weight: 800;
+		text-transform: uppercase;
+		display: none;
+		color: rgba(34, 62, 153, .5);
+	}
+	.estimator thead td a:hover {
+		color: #E34C53;
+	}
+	.estimator thead td a.edit {
+		font-size: .45em;
+		display: none;
+	}
+	.estimator thead td a.save {
+		display: none;
 		font-size: .75em;
-		border-top: 2px solid #333;
-		border-bottom: 1px solid #ddd;
-		margin-bottom: 5px;
 	}
-	#estimator-table td {
-		padding: 5px;
+	.estimator tbody td a.save {
+		display: none;
+		font-size: .75em;
+	}
+	.estimator thead td.project-title:hover,
+	.estimator thead td.hover {
+		background-color: #FFEFC8;	
+	}
+	.estimator thead td:hover a {
+		display: inline-block; /* Make the edit/save links visible on hover */
+	}
+	.estimator thead .project-title {
+		text-align: left;
+		/*width: 260px;*/
+		border-right: 1px solid #eee;
+		padding-right: .3125em;
+	}
+	.estimator thead .big {
+		font-size: 1.5em;
+		font-weight: 500;
+		color: #223E99;
+	}
+	.estimator tbody #clone_row {
+		display: none;
+	}
+	.estimator tbody tr.alt {
+		background: #F7F7F7;
+	}
+	.estimator tbody td {
 		text-align: center;
-		border-bottom: 1px solid #f5f5f5;
+		vertical-align: middle;
+		padding: 3px 0;
+		padding-left: .75em !important;
+		font-size: .85em;
 	}
-	#estimator-table td:first-child {
-		width: 3.75in;
+	.estimator tbody td .task {
+	
 	}
-	#estimator-table tr:last-child td {
-		border: 0px;
+	.estimator tbody td .task_field,
+	#title_field {
+	
 	}
-	#estimator-table td.right,
-	#estimator-table th.right {
-		text-align: right !important;
-		font-weight: bold;
+	.estimator tbody td a {
+		display: none;
+		font-size: .75em;
+		font-weight: 800;
+		text-transform: uppercase;
+		display: none;
+		color: rgba(34, 62, 153, .5);
+		padding-left: 7px;
 	}
-	#estimator-table td.left,
-	#estimator-table th.left {
-		text-align: left !important;
+	.estimator tbody td a:hover {
+		color: #E34C53;
 	}
-	.estimator-footer {
-		margin-top: 5px;
+	.estimator tbody td a.edit {
+	
+	}
+	.estimator tbody td a.delete {
+	
+	}
+	.estimator tbody td.left:hover, 
+	.estimator tbody td.hover {
+		background-color:  #FFEFC8;
+	}
+	.estimator tbody td:hover a,
+	.estimator tbody td.hover a {
+		display: inline; /* Make the edit/save links visible on hover */
+	}
+	.estimator thead .left,
+	.estimator tbody .left {
+		text-align: left;
+		padding-left: 1em;
+		width: 50%;
+	}
+	.estimator thead .right,
+	.estimator tbody .right {
 		text-align: right;
-		border-top: 2px solid #333;
-		padding-top: 5px;
+		padding-right: 1em;
+		width: 20%;
 	}
-	.estimator-footer #currency_total {
-		margin-right: 2px;
+	.estimator tbody .right {
+		font-weight: 500;
+		font-size: 1.25em;
 	}
-	.estimator-footer #grandTotal {
+	.estimator table td.operator,
+	.estimator table th.operator {
+		color: #E34C53;
+		font-size: .75em;
+		text-align: center;
+	}
+	.estimator .estimator-footer {
+		padding: 1em 0 1em 0;
+		width: 100%;
+	}
+	.estimator .estimator-footer #tf_buttons {
+	}
+	.estimator .estimator-footer #tf_buttons a {
+		padding: .5em 1em;
+		display: inline-block;
+		background-color: #E34C53;
+		border: 1px solid transparent;
+		color: #fff;
+		text-decoration: none;
+		font-size: .75em;
+		text-transform: uppercase;
+		border-radius: 500px;
+	}
+	.estimator .estimator-footer #tf_buttons a:hover {
+		background-color: #223E99;
+	}
+	.estimator .estimator-footer a.add-task {
+	
+	}
+	.estimator .estimator-footer a.add-task:hover {
+	
+	}
+	.estimator .estimator-footer a#reset_link {
+		border: 1px solid #E34C53;
+		background-color: transparent;
+		color: #E34C53;
+	}
+	.estimator .estimator-footer a#reset_link:hover {
+		border: 1px solid transparent;
+		color: #fff;
+	}
+	.estimator .estimator-footer #grandTotal {
+		font-size: 1.65em;
+		font-weight: 500;
 		text-align: right;
-		font-weight: bold !important;
-		padding-right: 5px;
+		padding: 0 .75em 0 0;
+		float: right;
 	}
 	.estimator-footer #grandTotal:before {
 		content: 'TOTAL:';
-		margin-right: 10px;
+		margin-right: 5px;
+		font-weight: 500;
+	}
+	label {
+		font-size: .75em;
+	}
+	
+	/* ------------------------------------------------------------
+		Estimate Form Table - Editable
+	------------------------------------------------------------ */
+	
+	#title_field,
+	#default_rate_field,
+	.task_field,
+	.qty_field,
+	.price_item_field {
+		font-size: 1rem;
+		padding: .25em;
+		border: 1px solid rgba(0,0,0,.2);
+		border-radius: 3px;
+	}
+	
+	#default_rate_field {
+		margin-left: .3125em;
+		width: 30%;
+	}
+	
+	/* ------------------------------------------------------------
+		Print Ready Estimate
+	------------------------------------------------------------ */
+	
+	body.ep-body {
+		background: white;
+	}
+	.ep-body .estimator {
+		padding: 40px;
+		margin: 0 auto;
+		background: white;
+		float: none;
+		display: block;
+	}
+	.ep-body .estimator table tbody td {
+		border-bottom: 1px solid #eee;
+	}
+	.ep-body .estimator table td:hover {
+		background: none;
+	}
+	.ep-body .estimator thead .col-heads th {
+		padding-bottom: .75em;
+	}
+	
+	header {
+		text-align: left;
+		margin: 0 0 40px 0;
+		width: 100%;
+		float: left;
+		line-height: 1.5em;
+	}
+	header img {
+		height: 50px;
+		padding-left: .5em;
+	}
+	header h1 {
+		font-size: .85em;
+		line-height: 1.65em;
+		font-weight: 500;
+		margin: 0 0 0px 0;
+		float: right;
+	}
+	header h2 {
+		text-align: right;
+		float: right;
+		margin: 0;
+		font-size: .85em;
+		font-weight: normal;
+		color: #E34C53;
+	}
+	header p {
+		font-size: .85em;
+		font-weight: 100;
+		line-height: 1.5em;
+		margin: 0px 0 0 0;
+		float: right;
+		clear: both;
 	}
 }

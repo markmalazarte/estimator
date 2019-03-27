@@ -68,7 +68,7 @@ class Template{
 <html lang="en">
     <head>
         <meta charset=utf-8"/>
-        <title>Web Development Project Estimator</title>
+        <title>Mark Malazarte - Project Estimator</title>
         <link rel="stylesheet" type="text/css" media="screen" href="./estimator.css" />
 		<link rel="stylesheet" type="text/css" media="print" href="./estimator-print.css" />
 
@@ -83,12 +83,19 @@ EOT;
 	public function form_header($params = array()){foreach($params as $key => $val){$$key = $val;}$output = <<<EOT
 
         <body onload="estimator_init()">
-                <header>
-                    <h1>Mark Malazarte - Design Quote</h1>
-                    <p>mark@markmalazarte.com</p>
-                </header>
-				<div class="estimator">
-
+                <div class="estimator">
+                    <div class="print-me">
+                        <input type="submit" id="form_submit" value="Print Version :)"/>
+                        <a href="#" class="bounce" id="form_link" onclick="estimator_submit();return false;" style="display:none">Print me! <span class="emoji">🖨✨</span></a>
+                    </div>
+                    <header>
+                        <!-- Logo -->
+                        <img src="mark-malazarte.svg" title="Mark Malazarte"/>
+                        <h1>Mark Malazarte</h1>
+                        <p>(407) 404-4603</p>
+                        <!--<h2>markmalazarte.com</h2>-->
+                        <p>mark@markmalazarte.com</p>
+                    </header>
 EOT;
         return $output;}
 
@@ -190,14 +197,12 @@ EOT;
 							</div>
 							
 							<div id="grandTotal">
-								<span id="currency_total">$currency_field</span><span id="total">$total</span>
+								<span id="currency_total">$currency_field</span> <span id="total">$total</span>
 							</div>
 							
 						</div>
 
                         <label for="save_changes">Remember Changes: <input type="checkbox" id="save_changes" name="save" value="checked" $save /></label>
-                        <input type="submit" id="form_submit" value="View Estimate in Print-Ready Format"/>
-                        <a href="#" id="form_link" onclick="estimator_submit();return false;" style="display:none">View Estimate in Print-Ready Format</a>
                         <input type="hidden" name="row_count" id="estimator_row_count" value="$row_count"/>
                     </form>
                     
@@ -218,11 +223,14 @@ EOT;
 
     public function estimate_header($params = array()){foreach($params as $key => $val){$$key = $val;}$output = <<<EOT
     <body class="ep-body">
-        <header>
-            <h1>Mark Malazarte - Design Quote</h1>
-            <p>mark@markmalazarte.com</p>
-        </header>
         <div class="estimator">
+            <header>
+                <!-- Logo -->
+                <img src="mark-malazarte.svg" title="Mark Malazarte"/>
+                <h1>Mark Malazarte</h1>
+                <p>(407) 404-4603</p>
+                <p>mark@markmalazarte.com</p>
+            </header>
 			<table id="estimator-table" cellspacing="0" cellpadding="0">
 				<thead>
 					<tr>
@@ -274,7 +282,7 @@ EOT;
 							<div class="estimator-footer">
 
 								<div id="grandTotal">
-									<span id="currency_total">$currency_field</span><span id="total">$total</span>
+									<span id="currency_total">$currency_field</span> <span id="total">$total</span>
 								</div>
 
 							</div>

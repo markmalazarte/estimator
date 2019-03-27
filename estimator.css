@@ -1,7 +1,14 @@
 html {
-	font-size: 1em;
+	font-size: 0.95em;
 	line-height: 1.5;
-	font-family: helvetica, arial, sans-serif;
+	font-weight: 400;
+	font-family: 'IBM Plex Mono', helvetica, arial, sans-serif;
+	color: #223E99;
+	font-variant-numeric: slashed-zero;
+}
+
+body {
+	margin: 0;
 }
 
 /* ------------------------------------------------------------
@@ -13,13 +20,52 @@ html {
 	max-width: 50em;
 	margin: 2em auto;
 }
+.bounce {
+	animation-name: bounce;
+	animation-timing-function: ease;
+}
+@keyframes bounce {
+	0%   { transform: translateY(0); }
+	50%  { transform: translateY(-3px); }
+	100% { transform: translateY(0); }
+}
+.print-me {
+	position: fixed;
+	top: 30px;
+	width: 50em;
+	margin-left: 65px;
+	//text-align: center;
+	animation: bounce 2s ease-in-out;
+	animation-iteration-count: infinite;
+}
+a#form_link {
+	font-size: .5em;
+	color: #fff;
+	padding: .5em 1em;
+	display: inline-block;
+	background-color: #223E99;
+	text-decoration: none;
+	text-transform: uppercase;
+	border-radius: 500px;
+	text-align: center;
+}
+a#form_link .emoji {
+}
+
+a#form_link:hover {
+	//transform: rotate(-4deg);
+	//transition: all .25s ease-in-out;
+	background: transparent;
+	color: #223E99;
+}
+
 .estimator table {
 	width: 100%;
 }
 .estimator thead th {
 	font-size: .6875em;
 	text-align: center;
-	color: rgba(0,0,0,.5);
+	color: #E34C53;
 	text-transform: uppercase;
 }
 .estimator thead th.project-title,
@@ -31,8 +77,8 @@ html {
 	padding-top: .75em;
 }
 .estimator thead td {
-	border-bottom: 1px solid rgba(0,0,0,.15);
-	padding: .5em 0 .5em 1em;
+	border-bottom: 1px solid #223E99;
+	padding: .5em;
 }
 .estimator thead td.project-title {
 	vertical-align: top;
@@ -54,12 +100,17 @@ html {
 	background-color: #FFEFC8;
 }
 .estimator thead td a {
-	font-size: .75em;
-	font-weight: 300;
+	font-size: .45em;
+	font-weight: 800;
+	text-transform: uppercase;
 	display: none;
+	color: rgba(34, 62, 153, .5);
+}
+.estimator thead td a:hover {
+	color: #E34C53;
 }
 .estimator thead td a.edit {
-	font-size: .75em;
+	font-size: .45em;
 	display: none;
 }
 .estimator thead td a.save {
@@ -80,25 +131,26 @@ html {
 .estimator thead .project-title {
 	text-align: left;
 	/*width: 260px;*/
-	border-right: 1px solid rgba(0,0,0,.15);
+	border-right: 1px solid #223E99;
 	padding-right: .3125em;
 }
 .estimator thead .big {
 	font-size: 1.5em;
-	font-weight: bold;
-	color: #000000;
-	line-height: 1.25em;
+	font-weight: 500;
+	color: #223E99;
 }
 .estimator tbody #clone_row {
 	display: none;
 }
 .estimator tbody tr.alt {
-	background: rgba(0,0,0,.05);
+	background: #F7F7F7;
 }
 .estimator tbody td {
 	text-align: center;
 	vertical-align: middle;
 	padding: 3px 0;
+	padding-left: .75em !important;
+	font-size: .85em;
 }
 .estimator tbody td .task {
 
@@ -109,6 +161,15 @@ html {
 }
 .estimator tbody td a {
 	display: none;
+	font-size: .75em;
+	font-weight: 800;
+	text-transform: uppercase;
+	display: none;
+	color: rgba(34, 62, 153, .5);
+	padding-left: 7px;
+}
+.estimator tbody td a:hover {
+	color: #E34C53;
 }
 .estimator tbody td a.edit {
 
@@ -137,24 +198,34 @@ html {
 	width: 20%;
 }
 .estimator tbody .right {
-	font-weight: bold;
-	font-size: 1.5em;
+	font-weight: 500;
+	font-size: 1.25em;
 }
 .estimator table td.operator,
 .estimator table th.operator {
-	color: rgba(0,0,0,.5);
+	color: #E34C53;
 	font-size: .75em;
 	text-align: center;
 }
 .estimator .estimator-footer {
-	padding: 1em 0 0 0;
+	padding: 1em 0 1em 0;
 	width: 100%;
 }
-.estimator .estimator-footer #tf_buttons{
-	padding: 0 0 0 1em;
+.estimator .estimator-footer #tf_buttons {
 }
 .estimator .estimator-footer #tf_buttons a {
-
+	padding: .5em 1em;
+	display: inline-block;
+	background-color: #E34C53;
+	border: 1px solid transparent;
+	color: #fff;
+	text-decoration: none;
+	font-size: .75em;
+	text-transform: uppercase;
+	border-radius: 500px;
+}
+.estimator .estimator-footer #tf_buttons a:hover {
+	background-color: #223E99;
 }
 .estimator .estimator-footer a.add-task {
 
@@ -162,16 +233,24 @@ html {
 .estimator .estimator-footer a.add-task:hover {
 
 }
-.estimator .estimator-footer #reset_link {
-
+.estimator .estimator-footer a#reset_link {
+	border: 1px solid #E34C53;
+	background-color: transparent;
+	color: #E34C53;
+}
+.estimator .estimator-footer a#reset_link:hover {
+	border: 1px solid transparent;
+	color: #fff;
 }
 .estimator .estimator-footer #grandTotal {
-	font-size: 1.5em;
-	font-weight: bold;
+	font-size: 1.65em;
+	font-weight: 500;
 	text-align: right;
-	width: 20%;
-	padding: 0 1em 0 0;
+	padding: 0 .75em 0 0;
 	float: right;
+}
+label {
+	font-size: .75em;
 }
 
 /* ------------------------------------------------------------
@@ -209,7 +288,7 @@ body.ep-body {
 	display: block;
 }
 .ep-body .estimator table tbody td {
-	border-bottom: 1px solid #CCCCCC;
+	border-bottom: 1px solid #eee;
 }
 .ep-body .estimator table td:hover {
 	background: none;
@@ -217,24 +296,36 @@ body.ep-body {
 .ep-body .estimator thead .col-heads th {
 	padding-bottom: .75em;
 }
-.ep-body .estimator .estimator-footer #grandTotal {
-	font-size: 1.5em;
-	line-height: 1.25em;
-	color: black;
-}
+
 header {
-	text-align: center;
-	margin-top: 20px;
+	text-align: left;
+    margin: 0 0 40px 0;
+    width: 100%;
+    float: left;
+}
+header img {
+	height: 50px;
+	padding-left: .5em;
 }
 header h1 {
-	font-size: 1.25em;
+	font-size: .85em;
 	line-height: 1em;
-	font-weight: bold;
-	margin: 0;
+	font-weight: 500;
+	margin: 0 0 10px 0;
+	float: right;
 }
-header p {
+header h2 {
+	text-align: right;
+	float: right;
+	margin: 0;
 	font-size: .85em;
 	font-weight: normal;
-	margin: 5px 0 0 0;
-	color: #ddd;
+	color: #E34C53;
+}
+header p {
+	font-size: .75em;
+	font-weight: 100;
+	margin: 0px 0 0 0;
+	float: right;
+	clear: both;
 }
