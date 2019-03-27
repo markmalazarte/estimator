@@ -191,7 +191,7 @@ EOT;
 						
 							<div id="tf_buttons">
 								<span id="add_task_button" style="display:none;">
-									<a href="#" id="add_task_link" onclick="estimator_add_task();return false;">Add a New Task</a>
+									<a href="#" id="add_task_link" onclick="estimator_add_task();return false;">+ New Task</a>
 								</span>
 								<a href="#" id="reset_link" onclick="estimator_reset();return false;">Reset Form</a>
 							</div>
